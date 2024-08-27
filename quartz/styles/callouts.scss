@@ -117,22 +117,24 @@
     --border: var(--lightgray);
     --callout-icon: var(--callout-icon-quote);
   }
-  .callout[data-callout="definition"] {
+
+  &[data-callout="definition"] {
     --color: rgb(80, 200, 120);
+    --bg: rgb(234, 240, 217);
     --callout-icon: var(--callout-icon-definition);
   }
     
-  .callout[data-callout="practice"]{
+  &[data-callout="practice"]{
     --color: rgb(7, 101, 0);
     --callout-icon: var(--callout-icon-thumbs);
   }
     
-  .callout[data-callout="fyi"]{
+  &[data-callout="fyi"]{
     --color: rgb(2, 120, 251);
     --callout-icon: var(--callout-icon-fyi);
   }
     
-  .callout[data-callout="reminder"]{
+  &[data-callout="reminder"]{
     --color: rgb(244, 187, 68);
     --callout-icon: var(--callout-icon-sticky);
   }
