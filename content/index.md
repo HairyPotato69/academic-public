@@ -5,7 +5,7 @@ tags:
   - HUB
   - Index
   - Academic
-description: Hub page
+description: Index page
 ---
 > This is my *personal* academic garden, use it as you see fit
 
@@ -20,3 +20,5 @@ I do not own or claim these notes or information as my own. They are taken from 
 
 ![[wallpaper.jpg]]
 *my current wallpaper*
+
+# Start with these hubs!
