@@ -7,7 +7,7 @@ tags:
 description:
 ---
 # Algorithm Analysis
-How do we measure the time complexity for multiple algorithms objectively? When we run the same algorithm on different machines, the time taken would differ due to the variance in specifications. 
+How do we measure the time complexity for multiple algorithms objectively? When we run the same algorithm on different machines, the time taken would differ due to the variance in specifications.<br>
 But, let's start with *why*? 
 
 **Reasons**
@@ -20,10 +20,10 @@ To examine whether an algorithm is efficient, the performance of the algorithm i
 2. Average-case
 3. Best-case
 
-*Does the .5 seconds matter?*
-Yes and no. In theory, the $0.5$ seconds is irrelevant as it would be diminished by the $1000$ seconds that came before it. However, $0.5$ seconds would mean life or death, or whether you get the thing you coveted the most. Regardless, since Algorithm Analysis is theoretical, the $0.5$ seconds is irrelevant.  
+*Does the .5 seconds matter?* <br>
+Yes and no. In theory, the $0.5$ seconds is irrelevant as it would be diminished by the $1000$ seconds that came before it. However, in real-life, the $0.5$ seconds can mean life or death, or whether you get the thing you coveted the most. Regardless, since algorithm analysis is theoretical, the $0.5$ seconds is irrelevant.  
 
-Take $n^2 + n$ for example. When the value of n is $4$, $n$ is will relevant; however, when the value grows so large, it approaches thousands, $n$ is diminished and is no longer relevant. Because of this, in Algorithm Analysis, the *constants* and any lower order terms will be ignored. 
+Take $n^2 + n$ for example. When the value of n is $4$, $n$ is still relevant; however, when the value of n scales to extremely large, say, one thousand, $n$ is diminished by $n^2$ and is no longer relevant. Because of this, in algorithm analysis, the *constants* and any lower order terms will be ignored. 
 
 1. Constants are ignored
 	- $5n -> O(n)$
@@ -34,9 +34,12 @@ Take $n^2 + n$ for example. When the value of n is $4$, $n$ is will relevant; ho
 *Formula based definition*
 $$
 \begin{align}
-g(x) \in f(x) \\ x_{o} \;\;C\\ g(x) \leq C\cdot f(x)\; ; x>x_{0} \end{align}
+g(n) \in f(n) \\ 
+\exists C \cdot \exists n_0 \cdot \forall n > n_0\\ 
+g(n) \leq C\cdot f(n)\;
+\end{align}
 $$
-*What does this mean*
+*What does this mean?*<br>
 There exist a constant, $c$, and $x_0$ such that $g(x)$ is $\leq$ $f(x)$
 
 Big Oh notation measures the worst case scenario in an algorithm. 
@@ -47,8 +50,10 @@ Examples of worst-case scenario would be:
 4. The value to be located is absent.
 
 *A formula based example*
+
 $f(n) = 4n^2+16n+2$
 $\text{Is }f(n) \in O(n^4) \quad \text{?} \qquad \text{side note: this is not tight enough}$
+
 $4n^2+16n+2 \leq (1)\cdot n^4$?
 Yes. 
 
@@ -60,20 +65,23 @@ Yes.
 | 2   | 50           | 16    | `False` |
 | 3   | 86           | 54    | `False` |
 | 4   | 130          | 256   | `True`  |
+
 Given that C is 1, $g(n)$ will be $\leq f(x)$ when $n$ exceeds 3. So, $f(n) \in O(n^4)$ is `True`.
 ## Omega notation, $\omega$
 *Formula based definition*
 $$
 \begin{align}
 g(n) \in O(f(n)) \\ 
-if \; C \; and \; n_{0} \\ 
-g(n) \geq C\cdot f(n) \; for \; all \; n >n_0 \\
+\exists C \cdot \exists n_0 \cdot \forall n > n_0\\ 
+g(n) \geq C\cdot f(n) \\
 \end{align}
 $$
 *What does this mean?*
+
 There exist a constant, $c$, and $x_0$ such that $g(x)$ is $\geq$ $f(x)$
 
 *What's the difference with the one above?*
+
 $\omega$ notation is used to represents the best case scenario in an algorithm.
 
 Examples of best-case scenario is:
@@ -81,9 +89,13 @@ Examples of best-case scenario is:
 2. The data structure is already arranged in ascending or descending order.
 
 *A formula based example*
+
 $f(n) = 4n^2+16n+2$
+
 $\text{Is }f(n) = \omega(n^2) ?$
+
 $4n^2+16n+2 \geq (1)\cdot n^2$?
+
 Yes. 
 
 | n   | $4n^2+16n+2$ | $n^2$ | $\geq$ |
@@ -92,33 +104,48 @@ Yes.
 | 2   | 50           | 4     | `True` |
 | 3   | 86           | 9     | `True` |
 | 4   | 130          | 16    | `True` |
-Given that C is $\leq$ 1, $f(n)$ will be $\leq g(x)$ when with any n value. So, $f(n) = \omega(n^2)$ is `True`.
+
+Given that C is 1, $f(n)$ will be $\leq g(x)$ with any n value. So, $f(n) = \omega(n^2)$ is `True`.
 
 $f(n) = 4n^2+16n+2$
+
 $\text{Is }f(n) \in \omega(n^3) ?$
+
 $4n^2+16n+2 \geq (C)\cdot n^3$?
-This will always be false. Cubic power will always overpower square power. So, $f(n) \notin \omega(n^3)$
+
+This will always be false. Cubic power will always overpower square power. 
+
+So, $f(n) \notin \omega(n^3)$
 ## Theta notation, $\theta$
 *Formula based definition*
 $$
 \begin{align}
 g(n) \in \theta(f(n)) \\ 
-if \; C \; and \; n_{0} \\ 
+\exists n_0 \cdot \exists C_1, C_2 \cdot \forall n>n_0\\ 
+C_1\times f(n) \leq g(n) \leq C_2 \times f(n) \\
+\text{It is basically, } \\
 g(n) \in O(f(n)) \\
 g(n) \in \omega(f(n))\\
 \end{align}
 $$
 *What does this mean?*
+
 There exist a constant, $c$, and $x_0$ such that $g(x)$ is between $O(f(n))$ and $\omega(f(n))$. In other words, it is the average case. 
 
 It can also be seen as when Big O notation and $\omega$ notation is equivalent.
 
 *Example*
+
 Assuming $f(n) = 4n^2 + 16n + 2$
+
 Is $f(n) \in \theta(n^2)$
-In order for this to be true, $f(n)$ has to be $\in O(n^2)$ and $\in\omega(n^2)$. This also means that $g(n)$ has to be $\leq C \cdot n^2$ and $\geq C \cdot n^2$. *How do we prove this?*
+
+In order for this to be true, $f(n)$ has to be $\in O(n^2)$ and $\in\omega(n^2)$. This also means that $g(n)$ has to be $\leq C \cdot n^2$ and $\geq C \cdot n^2$. 
+
+*How do we prove this?*
 
 $f(n) \in \omega(n^2)$
+
 Assuming C is 1,
 
 | n   | $4n^2+16n+2$ | $n^2$ | $\geq$ |
@@ -127,8 +154,10 @@ Assuming C is 1,
 | 2   | 50           | 4     | `True` |
 | 3   | 86           | 9     | `True` |
 | 4   | 130          | 16    | `True` |
+
 $f(n)\in O(n^2)$
-Assuming C is 1
+
+Assuming C is 1,
 
 | n   | $4n^2+16n+2$ | $n^2$ | $\leq$  |
 | --- | ------------ | ----- | ------- |
@@ -136,9 +165,10 @@ Assuming C is 1
 | 2   | 50           | 4     | `False` |
 | 3   | 86           | 9     | `False` |
 | 4   | 130          | 16    | `False` |
+
 $4n^2 + 16n + 2 \leq (n^2)$ will never be true with any value of C lesser than 5.
 
-Assuming C is 5
+Assuming C is 5,
 
 | n   | $4n^2+16n+2$ | $5n^2$ | $\leq$  |
 | --- | ------------ | ------ | ------- |
@@ -150,14 +180,16 @@ Assuming C is 5
 | .   | .            | .      | .       |
 | .   | .            | .      | .       |
 | 17  | 1430         | 1445   | `True`  |
-C = 5
-$n_0 = 17$
 
-$4n^2 + 16n + 2 \leq (n^2)$ is true with any value C greater than 5 and $n_0 = 17$.  $4n^2 + 16n + 2 \in O(n^2)$ is True.
+$C = 5$ and $n_0 = 17$
+
+$4n^2 + 16n + 2 \leq (n^2)$ is true with any value C greater than 5 and $n_0 = 17$.  
+
+So, $4n^2 + 16n + 2 \in O(n^2)$ is True.
 ## So, what does any of this mean?
 ![[graph.png|500]]
 
-This means that at some point (*a value*), $4n^2 + 16n + 2$ will be lesser than $5n^2$ until infinity. When we say some function, $T(n)$, in this case, $4n^2 + 16n + 2$, as the value of $n$ grows to infinity, $4n^2$ will take up majority of the value. $16n+2$ will become irrelevant to the equation. $4n^2$ will dominate the term. 
+This means that at some point (*a value*),  $4n^2 + 16n + 2$ will be lesser than $5n^2$ until infinity. When we say some function, $T(n)$, in this case, $4n^2 + 16n + 2$, as the value of $n$ grows to infinity, $4n^2$ will take up majority of the value. $16n+2$ will become irrelevant to the equation. $4n^2$ will dominate the term. 
 
 If we said the function $\in$ $O(n^2)$, it is not wrong, but the function is also $\in O(n^3)$ or $O(n^4)$ and so on. However, we only want the tightest formula to properly describe an algorithm. Out of all the possible time complexity, we want the smallest one that best fits the equation. In this case, $O(n^2)$. 
 
@@ -184,7 +216,8 @@ Average cases encompasses how long the algorithm would run most of the time.
 
 ## Linear time
 *Example: Traversing through a string*
-When you decide to traverse through a string, say, a *cat*, from start to finish, the time it would take would be length of the string. In this case, it would be 3. 
+
+When you decide to traverse through a string, say, *cat*, from start to finish, the time it would take would be length of the string. In this case, it would be 3. 
 
 *Snippet A: Traversing a string*
 ```python
@@ -203,14 +236,18 @@ for x in range(n): # O(N)
 	print(f'{x}')
 ```
 The time taken to calculate the value of y is $O(1)$ and `print(f'{x}')` will run $O(n)$ times. 
-*Why does `print(f'{x}')` run for $n$ times? Shouldn't it be $O(1)$?*
-The time complexity for `print(f'{x}')` is $O(1)$; however, since it is inside a `for` loop it would run as long as the `for` loop.  
 
-The total time is the summation between $O(1)$ and $O(n)$, but since higher order terms dominate, the time complexity turns into $O(n)$.
+*Why does `print(f'{x}')` run for $n$ times? Shouldn't it be $O(1)$?*
+
+The time complexity for `print(f'{x}')` is $O(1)$; however, since it is inside a `for` loop it would run as long as the loop.  
+
+The total time is the $O(1) * n$, but since higher order terms dominate, the time complexity turns into $O(n)$.
 
 ## Constant time, $O(1)$
 *Example: Storing the length of the string in a variable*
+
 What if linear time isn't fast enough? *It already is very good, but let's assume otherwise in this example.*
+
 What the user can do is to store the length of the string in a variable.
 
 *Snippet C: Storing length of cat*
@@ -270,10 +307,17 @@ def BinarySearch(arr:list[int], key:int, left:int, right:int) ->bool:
 	return 0
 ```
 
-Binary search starts in the middle of a **sorted list** and decide if the value is larger or smaller than the target value. It then breaks the list into smaller lists and repeats the process until the value is found. Because of this, the size of the array is being divided by 2. This means the time complexity of binary search is $log_2 \;n$. Other examples of this is searching in a Binary Search Tree or AVL tree; N-ary trees do not have this time complexity as the number of children varies in each subtree present in the tree.
+Binary search starts in the middle of a **sorted list** and decide if the value is larger or smaller than the target value. It then breaks the list into smaller lists and repeats the process until the value is found. Because of this, the size of the array is being divided by 2 in each iteration/recursion. This means the time complexity of binary search is $\log_2 n$. 
+
+Other examples of this is searching in a Binary Search Tree or AVL tree.
+
+>[!WARNING]
+>N-ary trees do not have this time complexity as the number of children varies in each subtree present in the tree.
 
 ## Other Runtimes
-$O(N^2)$ - one of the slowest runtime - is found in bubble sort, in its average or worst case scenario. Selection sort also has $O(n^2)$ time complexity in each of its scenario. Quick sort has $O(n^2)$ only in its worst case scenario - choosing the largest or smallest value as its pivot. 
+$O(N^2)$ 
+- one of the slowest runtime 
+- is found in bubble sort, in its average or worst case scenario. Selection sort also has $O(n^2)$ time complexity in each of its scenario. Quick sort has $O(n^2)$ only in its worst case scenario - choosing the largest or smallest value as its pivot. 
 
 *Snippet G: Quadratic time complexity*
 ```python
@@ -295,3 +339,14 @@ def Foo()->None:
 			print(f'{x * y}') 
 ```
 *What is the time complexity of this function?*
+
+# Solving Asymptotic Notations
+Prove $200n^2 + 7n = O(n^2)$
+$\exists C  = 201 \cdot \exists n_0 = 7 \cdot \forall n > n_0 \cdot 200n^2+7n \leq cn^2$
+Prove
+$$
+\begin{align}
+n > 7
+
+\end{align}
+$$

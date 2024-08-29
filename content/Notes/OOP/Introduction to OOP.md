@@ -342,3 +342,5 @@ final y = 5;
 const y = 5;
 ```
 `const` variables are initialised at runtime.
+# See Next
+[[Methods in Java]]

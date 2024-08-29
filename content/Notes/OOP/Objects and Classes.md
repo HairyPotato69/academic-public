@@ -1,9 +1,10 @@
 ---
-title: DSA Hub
+title: Objects and Classes
 draft: false
 tags:
   - Notes
-  - DSA
+  - Java
+  - OOP
 description:
 ---
 
