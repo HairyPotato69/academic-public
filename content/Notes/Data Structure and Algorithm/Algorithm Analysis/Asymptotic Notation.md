@@ -341,12 +341,110 @@ def Foo()->None:
 *What is the time complexity of this function?*
 
 # Solving Asymptotic Notations
+## Proving statements
+### Question I
 Prove $200n^2 + 7n = O(n^2)$
 $\exists C  = 201 \cdot \exists n_0 = 7 \cdot \forall n > n_0 \cdot 200n^2+7n \leq cn^2$
 Prove
 $$
 \begin{align}
-n > 7
+201n^2 < cn^2 \\
+200n^2 + n^2 < cn^2 \\
+200n^2 + n < cn^2 \\
+200n^2 + 7n < cn^2
+\end{align}
+$$
+$\exists C  = 207 \cdot \exists n_0 = 1 \cdot \forall n > n_0 \cdot 200n^2+7n \leq cn^2$
 
+**Rough work**
+$$
+\begin{align}
+200n^2 + 7n < cn^2 \\
+200n^2 - cn^2 < -7n \\
+n^2(200-c) < -7n \\
+n(200 - c) < -7 \\
+n < \frac{-7}{(200-c)}
+\end{align}
+$$
+let $c = 207$ and $n_0$ is now 1
+$$
+\begin{align}
+n \leq 1 \\
+1 \leq n \\
+n \leq n^2 \\
+7n \leq 7n^2 \\
+207n \leq 207n^2 \\
+200n + 7n \leq 207n^2 \\
+200^2 + 7n \leq cn^2
+\end{align}
+$$
+### Question II
+Prove $2n = O(n^{1.2})$
+
+$\exists C  = 2 \cdot \exists n_0 = 1 \cdot \forall n > n_0 \cdot 2n \leq cn^{1.2}$
+$$
+\begin{align}
+n\geq 1 \\
+1 \leq n \\
+n \leq n^2 \\
+2n \leq 2n^2 \\
+2n \leq 2n^{1.2} \\
+2n \leq cn^{1.2}
+\end{align}
+$$
+### Question III
+Prove $\forall c \cdot \exists n_0 \cdot \forall n>n_0 \cdot 2^{3n} < c(n!)$
+
+$\forall c \cdot \exists n_0 = \max(\frac{8^8}{7!c}, 8^8)\cdot \forall n>n_0 \cdot 2^{3n} < c(n!)$
+$$ 
+\begin{align}
+\text{take } n &> \frac{8^8}{(7!)(c)} \\
+& cn (7!) > 8^8 \\
+&8^8 < cn(7!) \\
+&8^8(8^{n-8}) < cn(7!)(8^{n-8}) \\
+&8^n < cn(7!)(8)(9)(10)...(n-1) \\
+&8^n < cn!
+\end{align}
+$$
+### Question IV
+Prove $\forall c \cdot \exists n_0 \cdot \forall n > n_0 \cdot n^{10,000} < cn!$
+
+$\forall c \cdot \exists n_0  = \max(\lceil \frac{1}{2}\rceil, 20,001) + 1\cdot \forall n > n_0 \cdot n^{10000} < cn!$
+
+Since $n>\lceil \frac{1}{c}\rceil +1$
+$$
+\begin{align}
+n &>\frac{1}{c} \\
+& cn > 1 \text{ and } k(n-k+1) > n \text{ for } k = 2,3,4,...,n-1 \\
+&\text{Since } n > 20,001; \quad 2(n-1) \geq n, 3(n-2) \geq n,..., 10,001(n-10,000) \\
+& \text{Therefore, } \\
+& n^{10,000} < (cn)(2(n-1))(3(n-2))...(10,000(n-9999))(10,001(n-10,000))\\
+& n^{10,000} < (1)(2)(3)...(10,000)(10,001)(n-10,000)...(n-2)(n-1)(n) \\
+& n^{10,000} < c(1)(2)(3)...(10,000)(10,001)[10,002...(n-10,001)]...(n-10,000)\\
+& \qquad \quad \;\;\;(n-2)(n-1)(n) \\
+& n^{10,000} < cn!
+\end{align}
+$$
+## Negations
+Prove $2^{2n} \neq O(2^n)$, using the definition of Big-Oh.
+Definition of Big-Oh
+$$
+\exists C \cdot \exists n_0 \cdot \forall c > n_0 \cdot 2^{2n} \leq c2^n
+$$
+Negation of Big-Oh
+$$
+\begin{align}
+\neg[\exists C \cdot \exists n_0 \cdot \forall n > n_0 \cdot 2^{2n}\leq c2^n] \\
+\forall C \cdot \forall n_0 \cdot \exists n = \max(\lceil \lg c\rceil,n_0) \cdot 2^{2n} > c2^n \\
+\end{align}
+$$
+**Prove**
+$$
+\begin{align}
+2^{2n} > c2^n \\
+(2^n)^2 > c2^n \\
+2^n > c \\
+n \log 2 > \log c \\
+n > \log c
 \end{align}
 $$

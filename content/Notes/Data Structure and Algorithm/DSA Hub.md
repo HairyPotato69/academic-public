@@ -18,9 +18,9 @@ description:
 
 | No  | Title               | Link                    |
 | --- | ------------------- | ----------------------- |
-| 1.  | Asymptotic Notation | [[Introduction to OOP]] |
-| 2.  | Solving Recurrence  | [[Methods in Java]]     |
-| 3.  | Objects and Classes | [[Objects and Classes]] |
+| 1.  | Asymptotic Notation | [[Asymptotic Notation]] |
+| 2.  | Solving Recurrence  | [[Solving Recurrences]] |
+| 3.  | Amortised Analysis  | [[Amortised Analysis]]  |
 # Sources
 - [Oracle tutorial](https://docs.oracle.com/javase/tutorial/java/index.html)
 - [LearnCpp](https://www.learncpp.com/cpp-tutorial/introduction-to-object-oriented-programming/)

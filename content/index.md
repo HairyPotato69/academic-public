@@ -16,10 +16,13 @@ I'm [HairyPotato69](https://github.com/HairyPotato69). This is my **digital gard
 
 I don't apply any popular systematic way of making notes. I keep my notes in sequential order under headings subheadings. 
 
-I do not own or claim these notes or information as my own. They are taken from online sources, books, lectures, and tutorials. 
+I do not own or claim these notes or information as my own. They are taken from online sources, books, lectures, and tutorials reimagined into my own words and thoughts. 
+
+If you don't know where to look for sources, this digital garden can guide you. 
 
 ![[wallpaper.jpg]]
 *my current wallpaper*
 
 # Start with these hubs!
 1. [[OOP Hub]]
+2. [[DSA Hub]]
