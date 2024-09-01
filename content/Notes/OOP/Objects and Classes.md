@@ -326,8 +326,8 @@ stealPet.setName("Poo")
 
 # Noteworthy packages
 These are some common noteworthy packages to explore: 
-1. Math
-2. Random
-3. String
-4. StringBuilder
-5. Character
+1. [Math](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html)
+2. [Random](https://docs.oracle.com/javase/8/docs/api/java/util/Random.html)
+3. [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)
+4. [StringBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html)
+5. [Character](https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html)
