@@ -159,5 +159,29 @@ static double add(double a, double b, double c){ return a+b+c; }
 >```
 >In this case, since 1 and 2 can be [[Introduction to Java#Casting|widened]] to `double`, JAVA does not know which one to call.
 
+## Pass by reference and Pass by value
+By default, Java passes arguments by value - a copy of the value is made - rather than by reference. This isn't something we can control explicitly either. 
+
+This means that when arguments are passed, any changes made to the passed values only happen in the method. The variables outside of the method aren't affected. 
+
+This works with primitive datatype, but how about object or reference types? <br>Since reference types store the memory address of the object, changes made to the passed reference type reflects the original object as well. 
+
+So, if you do something like this
+```java
+class Main{
+	public static void main(String[] args){
+		int x = 5;
+		Student student = new Student();
+	}
+	private void changeId(Student s){
+		// the change affects the original object
+		s.setID("123456");
+	}
+	private void addNumber(int x){
+		// it is only 6 here
+		x+=1
+	}
+}
+```
 # See next
-[[]]
+[[Objects and Classes]]

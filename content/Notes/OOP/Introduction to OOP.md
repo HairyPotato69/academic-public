@@ -76,7 +76,7 @@ Say it's still **ooga booga** age, but programming somehow exists, and you disco
 <mark style="background: #FFF3A3A6;"><em>The first benefit:  the increase in reusability</em></mark>
 <mark style="background: #FFF3A3A6;"><em>The second benefit: easier to modify and maintain</em></mark>
 
-Since each object is *very, closely, very-very related* to its characteristics and methods, programmers have to properly plan and design each object before implementing them. They're *coerced* into designing and implementing **good code**
+Since each object is *very, closely, very-very related* to its characteristics and methods, programmers have to properly plan and design each object before implementing them. They're *coerced* into designing and implementing **good code** ^981663
 
 *<mark style="background: #FFF3A3A6;"><em>The third benefit: Less flaws as programmers are required to plan properly before implementation</em></mark>
 
