@@ -11,8 +11,8 @@ description: Index page
 
 I'm [HairyPotato69](https://github.com/HairyPotato69). This is my **digital garden** to record my academic journey throughout my Computer Science Degree. I've started this garden not long ago, so, for now, there are only a few *plants* - basic ideas and content. But hey, it's a fresh start, and I will nurture and grow my garden over time. 
 
->[!quote] It is never too late
->The best time to plant a tree was 20 years ago. The second best time is now.
+>[!quote] Orugio
+>*From I don't know what to do* to *I don't know how to do it*
 
 I don't apply any popular systematic way of making notes. I keep my notes in sequential order under headings subheadings. 
 
