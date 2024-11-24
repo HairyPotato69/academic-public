@@ -10,14 +10,14 @@ description:
 >[!Reminder] Programming Paradigm
 >Java uses [[Introduction to OOP#What is Object-Oriented Programming?|OOP]]
 # Java Classes
-In languages that support OOP, classes usually looks like this 
+In languages that support OOP, classes usually look like this 
 ```pseudocode
 class CLASSNAME
 	attributes
 	constructor
 	methods
 ```
-In java specifically, it looks like this, 
+In Java specifically, it looks like this, 
 
 *Snippet A: Student*
 ```java
@@ -46,8 +46,18 @@ public class Student{
 
 ^b9c2ac
 
-Presenting our program in the form of code to outsiders can be inefficient and complicated. Keep in mind that [[Introduction to OOP#^981663|you have to plan]] before implementing any code. This begs for a method to visualise and show the flow and functions of the program in a non-esoteric manner. 
+Introducing or demonstrating our program via codes that we wrote to outsiders, especially those who are not technically-equipped can be difficult. 
 
+>[!NOTE] How To: Present
+>1. Simplify the Language
+>		- Avoid jargon and use simple, clear language
+>2. Use Analogies
+>		- Relate complex ideas to every day experiences
+>3. Visual Aids
+>		- Use diagrams, charts, and visual representations 
+>4. Interactive Demos
+
+Keep in mind that [[Introduction to OOP#^981663|you have to plan]] before implementing any code. This begs for a method to visualise and show the flow and functions of the program in a non-esoteric manner. 
 ## UML Diagram
 >[!DEFINITION] Unified Modelling Language
 >It is a standardised modelling language for object-oriented system analysis, design and development.
@@ -69,9 +79,9 @@ classDiagram
     }
 ```
 
-The "-" sign means it is private while the "+" sign means it is public. 
+> The "-" sign means it is private while the "+" sign means it is public. 
 
-To create a diagram for instances
+*UML B:* To create a diagram for instances
 ```mermaid
 classDiagram
 class Student_1["<u>Rick:Student</u>"]{
@@ -89,14 +99,15 @@ class Student_2["<u>Astley:Student</u>"]{
 }
 ```
 ## Visibility Modifiers
-*What does it `private` and `public` mean?*
-- `private` access modifier means that the methods or attributes can only be accessed by the declaring class or within its own class ^686cdd
-- `public` access modifier means that class, attributes, or methods can be access by any class in any package. 
-	- It just means it can be accessed anywhere. 
+*What does `private` and `public` mean?*
+- `private` 
+	- Methods or attributes that can only be accessed by within the same class in which they are declared. ^686cdd
+		- They are not accessible from outside the class
+- `public` 
+	- Methods or attributes that be accessed by any class in any package. 
+		- It just means they are globally accessible
 
-*So, why do we need to do this?*
-
-We do this to control the amount of access a person has over the attributes and methods of a class. This is important to prevent any unauthorised changes or access to important attributes of a class. 
+*So, why do we need control access to certain methods and attributes?*<br>This is important to prevent any unauthorised changes or access to important attributes of a class. 
 
 *So, if we make a method or an attribute private, how do we access those?*
 
@@ -128,6 +139,7 @@ classDiagram
 	    +setAge()void
     }
 ```
+
 *Snippet B: Visibility*
 ```java
 public class Main{
@@ -140,22 +152,23 @@ public class Main{
 	}
 }
 ```
-There is also another access modifier known as `default` or package private modifier. This means that the attributes or methods are only accessible by classes (even if they're different) in the same package
+There is also another access modifier known as `default` or *package private modifier*. This means that the attributes or methods are only accessible by classes - even if they're different - in the same package.
 # Constructor
-Constructor is like a tool used to quickly insert values to an object during construction. 
+Constructor is a tool that is used to quickly insert values to an object during construction of the object. 
 
-There are rules to keep in mind when creating a constructor:
-1. The constructor must have the same name as the class
+There are rules and characteristics to keep in mind when creating a constructor:
+1. The name of the constructor must be the same as the class
 2. The constructor cannot return any value
 3. Constructors can be overloaded
 4. Default constructor is required
 	- If no constructor is explicitly defined, the Java compiler will implicitly define a default constructor.
 	- If a custom constructor is defined, an explicitly defined constructor is required. 
 5. Constructors cannot be inherited
-6. A superclass constructor can be called with `.super()`
+6. A superclass's constructor can be called with `.super()`
 7. Constructors can be private
-	- But there's really no point in doing this
+	- But there's really no point in doing this, lest there is a very specific reason
 8. If the class `extends` another class, the constructor will begin with `super()`
+	- `super()` is called implicitly, so a if a superclass has a custom constructor, a default construct has to be defined.
 
 A constructor will be invoked with `new` keyword
 ```java
@@ -196,7 +209,7 @@ public class Main{
 	}
 }
 ```
-The code above fails because there is no copy constructor defined. To fix this, add the following code:
+The code above fails because there is no copy constructor defined. To fix this, the following code is needed:
 
 *Snippet D: Copy Constructor*
 ```java
@@ -209,7 +222,6 @@ public Student(Student student){
 }
 ```
 As shown with the multiple definition of constructors, constructors can be overloaded. 
-
 # Default values
 When no default values are defined for the attributes **outside of any methods**, Java assigns its own default values. 
 
@@ -219,7 +231,6 @@ When no default values are defined for the attributes **outside of any methods**
 | Numeric type   | 0        |
 | Boolean type   | false    |
 | Char type      | '\u0000' |
-
 # `this`
 >[!DEFINITION]
 >`this` keyword is used to refer to itself.
@@ -259,11 +270,22 @@ Another use case is to invoke another constructor in a constructor of the same c
 		this(100);
 	}
 ```
+
+>[!NOTE] Naming Convention in C++
+>In C++, a common practice in naming the variables is beginning them with prefix `m_` to differentiate them with non-member variables.
+>```cpp
+>class Foo{
+>private:
+>	int m_x{};
+>public:
+>	Foo(int x) : m_x (x){}
+>};
+>```
 # Primitive vs Object Types
 >[!Reminder] 
 >See: [[Introduction to OOP#Variables|Variables]]
 
-When you copy a primitive datatype, the values are copied whereas when you copy a reference type, the address of the values are copied. 
+When a primitive datatype is copied, it is the values that are copied whereas when a reference type is copied, it is the address of the variable. 
 
 *Snippet H: Copying variables*
 ```java
@@ -276,7 +298,7 @@ Circle circle2 = new Circle(10);
 circle1 = circle2
 ```
 
-`circle2` will point to the same address as `circle1` rather than creating a new object. The older address that `circle2` was pointing to will be marked for garbage collection
+`circle2` will point to the same address as `circle1` rather than creating a new object. The older address that `circle2` was pointing to will be marked for garbage collection.
 # Immutability
 It is also possible to make certain objects immutable.
 >[!DEFINITION] Immutable

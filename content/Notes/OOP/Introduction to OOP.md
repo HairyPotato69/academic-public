@@ -8,26 +8,28 @@ tags:
 description:
 ---
 >[!WARNING] Knowledge
->This note assumes some familiarity with programming languages.
+>This note assumes some familiarity with programming.
+>Java language is used in the notes.
 
 # What is Object-Oriented Programming?
 >[!DEFINITION] OOP
->It is a Programming paradigm that represents concepts as objects with attributes (*datatypes*) and methods (*functions*)
+>A programming paradigm that represents concepts as objects with attributes (*datatypes*) and methods (*functions*)
 
-An object oriented program can be seen as objects interacting with another object. The Java language is built based on OOP paradigm while its sibling, Haskell, is built around functional programming.  ^593cb2
+An object-oriented program can be seen as objects interacting with each other.
+
+>[!INFO] Functional programming
+>Haskell is built around functional programming.
 
 >[!DEFINITION] Functional Programming
->It is also a programming paradigm that represents concepts, but it is purely in functions. Everything is done via recursion. It has a steeper learning curve despite its misleading name.
-
-*How about procedural programming?*
-Procedural programming is what most programmers do.
+>A programming paradigm that represents concepts purely in functions.
 
 >[!DEFINITION] Procedural Programming
->A form of programming practice that focuses on creating "procedures" or functions that implement the program's logic. Data is passed to the function and the function performs operations on the data.
-
+>A programming paradigm that focuses on creating "procedures" or functions that implement the program's logic. Data is passed to the function and the function performs operations on the data.
+## Benefits of Object-Oriented Programming
+### Ease of Modification & Reusability
 The problem with procedural programming is that the methods and variables are separated from the object. Take this for example,
 
-*Snippet A: procedural programming*
+*Snippet A: Procedural programming*
 ```cpp
 #include <iostream>
 #include <string_view>
@@ -64,6 +66,7 @@ constexpr int numLegs(AnimalType type){
 			return 0;
 	}
 }
+
 int main(){
 	constexpr  AnimalType animal{ cat };
 	std::cout << "A " << animalName(animal) << " has " << numLegs(animal) << " legs\n";
@@ -71,29 +74,42 @@ int main(){
 	return 0;
 }
 ```
-Say it's still **ooga booga** age, but programming somehow exists, and you discovered a new animal! *Yay!*. But since the code is done in procedural programming, you would have to update the `enum`, `animalName`, and `numLegs`. If it is a large codebase, imagine the amount of changes that have to be done. 
+Imagine you're in the Stone Age, but programming somehow exists. One day, you go hunting and you discovered a new animal! *Yay!*. 
 
-<mark style="background: #FFF3A3A6;"><em>The first benefit:  the increase in reusability</em></mark>
-<mark style="background: #FFF3A3A6;"><em>The second benefit: easier to modify and maintain</em></mark>
+However, since your existing database on animals is done with procedural programming, updating would be a bit of a hassle.
 
-Since each object is *very, closely, very-very related* to its characteristics and methods, programmers have to properly plan and design each object before implementing them. They're *coerced* into designing and implementing **good code** ^981663
+*Why?*<br>*Take the code above as an example*.<br>You would have to update the `enum`, `animalName`, and `numLegs`. If it is a large codebase, imagine the amount of changes that have to be done each time a new animal is discovered.
 
-*<mark style="background: #FFF3A3A6;"><em>The third benefit: Less flaws as programmers are required to plan properly before implementation</em></mark>
+This highlights the two of the many benefits of OOP:
+1. Greater reusability
+2. Ease of modification
 
-*You hired another cavemen to help you but he's completely new to coding. You start to worry about all the bugs and maintenances you have to do; but, should you?*
+### Demands proper planning
+*So, how do we modify the current database?*<br>Since each object is *closely related* to its attributes and methods, programmers have to properly plan and design each object before implementing them in the program.
 
-<mark style="background: #FFF3A3A6;">You shouldn't. Well, if you do it right. OOP introduces a concept called <strong>encapsulation</strong></mark>
+The third benefit:
+- **Possibly** lesser flaws as programmers are expected to perform meticulous planning and designing.
+
+>[!TLDR]
+>Programmers are *coerced* into designing and implementing **good code**
+### Prevents Unintended Changes
+*Say you hire another cavemen to help you, but he is new to OOP concept. You start to worry about all the bugs and maintenances you have to do; but, should you?*
+
+You shouldn't. Well, if you do it right. OOP introduces a concept called <strong>encapsulation</strong>
 
 >[!DEFINITION] Encapsulation
 >The act of hiding certain methods or variables so that only certain classes can access them. 
+## Drawbacks of Object-Oriented Programming
+No. OOP has a low skill floor but high master ceiling.
 
-**But, is OOP really that great?**
-No. OOP has a low skill floor but high master ceiling (*easy to pick up but hard to master*). 
+*What do I mean by this?*<br>It is easy to pick up and learn the concepts of OOP even for beginners but, applying them properly is difficult, especially if future plans and developments have to be kept in mind. 
 
-When the project scales large, the program can be slower. Think about it, in Java, every time you want to created a function, you have to create a whole new class.
+The program can also be slower when the project scales large.
 # Classes and Objects
 ## What are objects?
-Objects are made up of *attributes* and *methods*. For example, a student.
+Objects represent distinguishable entities that represent real-world entities or objects. Objects are made up of *attributes* and *methods*. For example, a `Student`.
+
+*Snippet A: `Student` object*
 ```java
 public class Student{
 	public Student(){};
@@ -109,6 +125,10 @@ public class Student{
 	private int age;
 }
 ```
+
+>[!PRACTICE] Order
+> [Order of Declaration](https://stackoverflow.com/questions/150479/order-of-items-in-classes-fields-properties-constructors-methods)
+
 ```mermaid
 ---
 title: Student
@@ -125,35 +145,23 @@ classDiagram
 
 ```
 
->[!NOTE]- Signs
->*-* means private
->*+* means public
->Methods that do not have return type are `constructors`
-
 >[!DEFINITION] Classes
->Classes are basically blueprints that is used to create objects. 
+>Classes are basically *blueprints* that is used to create objects. 
+^2bc1fc
 
-Every person is a human, but every human is also very different; each of us have similar features, have the same basic life processes, but we also do, feel, and think in vastly different manners from each other. What I'm trying to say is that we are made from the same blueprint but each of us also has our defining characteristics and personalities. 
+Each of us have similar features; we possess the same basic life processes but, we also do, feel, and think in vastly different manners from one another.
+
+This reflects the initial definition of a [[Introduction to OOP#^2bc1fc|class]], that is to say, that we are made from the same blueprint, but each of us also has our own defining characteristics and personalities.
 
 >[!DEFINITION] Objects
 >Objects are instances of classes. 
 >>[!EXAMPLE]
->>Human is a blueprint while Levin is an object.
-
-Classes by itself cannot achieve anything. It can only be used to create objects. 
+>>Human is a `class`(blueprint) while Violet is an `object`.
 
 >[!DEFINITION] Instantiation
 >The act of creating an object from a class. 
-
-# Java 
-The design of java revolves around *write once, run anywhere*. This means that Java is platform independent. 
-```mermaid
-flowchart TD
-id1[(source code)] --> id2(Compile source code) --> id3[(bytecode)] --> id4(Run Bytecode) --> id5>Result] 
-```
-
 ## Java Syntax
-*Snippet A: Driver code*
+*Snippet A: Java `main` function*
 ```java
 public class Main{
 	public static void main(String args[]){
@@ -162,7 +170,8 @@ public class Main{
 	}
 }
 ```
-*Snippet B: Student code*
+
+*Snippet B: `Student` class*
 ```java
 public class Student{
 	public Student(){};
@@ -181,12 +190,13 @@ public class Student{
 	private int age;
 }
 ```
-*The syntax in Java is very similar to the syntax is C++, so the following highlights only noteworthy differences.*
 
-To recap, [[Introduction to OOP#^593cb2|OOP paradigm in Java.]]
+>[!TIP] Similarity
+>The syntax in Java is very similar to the syntax in C++.
+
 Every Java program must have **at least one class**.
 
-*Snippet C: Main*
+*Snippet C: Java `main` function*
 ```java
 public class Main{
 	public static void main(String args[]){
@@ -195,34 +205,32 @@ public class Main{
 	}
 }
 ```
-The main function is the **at least one class**. Every class is declared with `public/private/protected class <name>` with the `<name>` as the name of the file.
+The main function is the "at least one" class. Every class is declared with `public/private/protecte<access modifier> class <name>` with the `<name>` as the name of the file.
 
-*Can I make the `main` class or  the `main` function private?*
-You can, but why?. 
-The `main` function is public so that the OS or the runtime environment can access it to start the program. If these are made `private`, the program will not have a clear entry point, leading to runtime errors or the program simply not running at all.
+*Can I make the `main` class or  the `main` function private?*<br>You can, but why? The `main` function is `public` so that the OS or the runtime environment can access it to start the program. If these are made `private`, the program will not have a clear entry point, leading to runtime errors or the program not starting at all.
 
-*I still want to do procedural programming! How do I achieve that?*
-You can *sort-of* achieve that with `static` keyword.
-When you use `static` in Java, it can mean 3 things:
+*Is it possible to still execute procedural programming in Java?*<br>You can *sort-of* achieve that with the `static` keyword.
+
+When you use the `static` keyword in Java, it can mean 3 things:
 1. The variable belongs to the class instead of an object
-	- A circle class with static variable `color` will have every object instantiated from it share the same colour.
-1. The method can be called without instantiating an object. 
+	- A `Circle` class with `static` variable `color` will have every object instantiated from that class share the same `colour`.
+		- If the `color` in one object is changed, it changes for all objects, because they all refer to the same variable.
+2. When the `static` keyword is applied on a method, the method can be called without instantiating an object. 
 	- `<ClassName>.method()`
-2. Static method can only access static variables and other `static` methods.
-	- This is important to keep in mind
+	1. Static method can only access `static` variables and other `static` methods.
 
-*Why does the `main` method require so many parameters?*
+*Why does the `main` method look the way it does?*
 1. `public`
 	- This is an access modifier. 
-		- Public means anyone (`globally`) can access it
-	- Making this public ensures that `JVM` can run the program.
-3. static
+		- `public` means anyone (`globally`) can access it
+	- Making this `public` ensures that `JVM` can run the program.
+3. `static`
 	- This is so that `JVM` can access the `main` method without creating an object.
-4. void
+4. `void`
 	- No value is returned from the `main` method. 
-	- When the `main` function terminates, the programme terminates so, there's no point in returning anything.
-6. main
-	- It's a name that `JVM` looks for as the starting point of a programme.
+	- When the `main` function terminates, the program terminates so, there's no point in returning anything.
+6. `main`
+	- It's a name that `JVM` looks for as the starting point of a program.
 7. String\\\[\] args
 	- It is an array of type String named args (arguments).  
 
@@ -231,18 +239,17 @@ In C++, you import libraries like this
 ```c++
 #include <iostream>
 ```
+
 In Java,
 ```java
 import java.<package>.<class>
 ```
-*Is specifying the class necessary?*
-No, you can import the whole package but will you actually use every class in the package? Chances are, 
-you will be wasting space since you won't be using all of the classes.
 
+*Is specifying the class necessary?*
 ```java
 import java.package.*
 ```
-
+No, you can import the whole package but *will you actually use every class in the package?* It's likely that you won't use all of the classes.
 # Variables
 Unlike C++, Java is a safer language - there is no manual memory management involved. Instead, Java detects whether a variable is a primitive type or a reference type and handles the rest. 
 
@@ -310,10 +317,9 @@ char letter = '\u0041';
 char numChar = '\u0034';
 ```
 However, Java characters use *Unicode* (It's a superset of ASCII) which takes two bytes, preceded by `\u`,expressed in four hexadecimal numbers - `\u0000` to `\FFFF`. 
+
 >[!INFO] Number of characters
 >*Unicode can represent 65535 characters.*
-
-
 ### String
 Just like C++, `String` are objects/reference type. 
 
@@ -329,7 +335,6 @@ Conversely, you can also convert `int` type to `string` type.
 String s = Integer.toString(i);
 String s2 = Double.toString(d);
 ```
-
 ## Constants
 When it comes to constants, just the syntax is different from C++.
 ```c++

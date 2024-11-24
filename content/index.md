@@ -19,7 +19,7 @@ I do not own or claim these notes or information as my own. They are taken from 
 
 If you don't know where to look for sources, this digital garden can guide you. 
 
-![[wallpaper.jpg]]
+![[wallpaper-2.png]]
 *my current wallpaper*
 # Start with these hubs!
 1. [[OOP Hub]]
