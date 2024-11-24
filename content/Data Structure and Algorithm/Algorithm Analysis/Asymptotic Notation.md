@@ -187,7 +187,7 @@ $4n^2 + 16n + 2 \leq (n^2)$ is true with any value C greater than 5 and $n_0 = 1
 
 So, $4n^2 + 16n + 2 \in O(n^2)$ is True.
 ## So, what does any of this mean?
-![[graph.png|500]]
+![[content/Data Structure and Algorithm/Algorithm Analysis/Images/graph.png|500]]
 
 This means that at some point (*a value*),  $4n^2 + 16n + 2$ will be lesser than $5n^2$ until infinity. When we say some function, $T(n)$, in this case, $4n^2 + 16n + 2$, as the value of $n$ grows to infinity, $4n^2$ will take up majority of the value. $16n+2$ will become irrelevant to the equation. $4n^2$ will dominate the term. 
 

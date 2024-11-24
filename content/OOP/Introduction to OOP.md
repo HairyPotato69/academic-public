@@ -270,7 +270,7 @@ Student Levin; // Reference
 >3. Arrays
 
 *Visualisation*
-![[primitive-vs-reference.png]]
+![[content/OOP/Images/primitive-vs-reference.png]]
 
 The list of primitive types can be found here:
 [It's a long read]([Primitive Data Types (The Java™ Tutorials > Learning the Java Language > Language Basics) (oracle.com)](https://docs.oracle.com/javase%2Ftutorial%2F/java/nutsandbolts/datatypes.html))

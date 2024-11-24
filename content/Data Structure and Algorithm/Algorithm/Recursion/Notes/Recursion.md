@@ -13,7 +13,7 @@ Completion: true
 >[!DEFINITION] Recursion
 >It is a technique where a function calls upon itself during an operation
 
-![[Basic-Recursion.png|500]]
+![[public/Notes/Data-Structure-and-Algorithm/Algorithm/Recursion/Diagrams/Basic-Recursion.png|500]]
 
 # How does it work?
 A recursive function comprises: 
