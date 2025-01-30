@@ -1,3 +1,33 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+.callout {
+    &[data-callout="definition"] {
+        --color: #50c878;
+        --bg: #50c87820;
+        --border: #50c87844;
+        --callout-icon: var(--callout-icon-definition);
+    }
+    
+    &[data-callout="practice"]{
+        --color: #076500;
+        --bg:#07650020;
+        --border: #07650044;
+        --callout-icon: var(--callout-icon-thumbs);
+    }
+    
+    &[data-callout="fyi"]{
+        --color: #0278fb;
+        --bg: #0278fb20;
+        --border: #0278fb44;
+        --callout-icon: var(--callout-icon-fyi);
+    }
+    
+    &[data-callout="reminder"]{
+        --color: #f4bb44;
+        --bg: #f4bb4420;
+        --border: #f4bb4444;
+        --callout-icon: var(--callout-icon-sticky);
+    }
+
+} 
